@@ -17,12 +17,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     }
   };
 
-  console.log(stock)
-  console.log(quantity)
   return (
     <>
-      <div>
-        <div>
+      <div className=''>
+        <div className='d-flex justify-content-evenly mb-3'>
           <MDBBtn onClick={increment}>+</MDBBtn>
           <h4>{quantity}</h4>
           <MDBBtn onClick={decrement}>-</MDBBtn>

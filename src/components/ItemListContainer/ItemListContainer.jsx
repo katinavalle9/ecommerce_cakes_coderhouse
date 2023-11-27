@@ -1,20 +1,12 @@
 // eslint-disable-next-line no-unused-vars
-import { useState, useEffect } from "react";
-import {
-  MDBCarousel,
-  MDBCarouselItem,
-  MDBBtn,
-} from "mdb-react-ui-kit";
+import { MDBCarousel, MDBCarouselItem, MDBBtn } from "mdb-react-ui-kit";
 import Img1 from "../../assets/ImagesItem/chispas.jpg";
 import Img2 from "../../assets/ImagesItem/cake_white.webp";
 import Img3 from "../../assets/ImagesItem/cook_chocolate.jpg";
-import ItemList from "../ItemList/ItemList";
-
+import Item from "../../pages/Item/Item";
 
 // eslint-disable-next-line react/prop-types
 function ItemListContainer({ greeting }) {
-  
-
   return (
     <>
       <MDBCarousel showControls showIndicators touch={true}>
@@ -45,9 +37,8 @@ function ItemListContainer({ greeting }) {
       </div>
 
       <div>
-       <ItemList/>
+        <Item />
       </div>
-
     </>
   );
 }

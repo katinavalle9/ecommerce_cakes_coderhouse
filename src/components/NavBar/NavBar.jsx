@@ -9,7 +9,6 @@ import {
   MDBNavbarNav,
   MDBNavbarItem,
   MDBNavbarLink,
-  //MDBBtn,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -18,9 +17,33 @@ import {
 } from "mdb-react-ui-kit";
 import Logo from "../../assets/images/logo.png";
 import CartWidget from "../CartWidget/CartWidget";
+import { Link } from "react-router-dom";
+import { getCategory } from "../../AsyncMock";
 
 export default function Navbar() {
   const [openBasic, setOpenBasic] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const result = await getCategory();
+        setCategories(result);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+  
+    fetchCategories();
+  }, []);
+
+
+  if (!Array.isArray(categories) || categories.length === 0) {
+    // Si las categorías todavía se están cargando, puedes mostrar un indicador de carga
+    return <div>Cargando categorías...</div>;
+  }
+
+
 
   return (
     <MDBNavbar expand="lg" light bgColor="light">
@@ -47,7 +70,7 @@ export default function Navbar() {
         <MDBCollapse navbar open={openBasic}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0 d-flex justify-content-around align-items-center">
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="#">
+              <MDBNavbarLink active aria-current="page" href="/">
                 Inicio
               </MDBNavbarLink>
             </MDBNavbarItem>
@@ -58,10 +81,11 @@ export default function Navbar() {
                   Productos
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>Todos</MDBDropdownItem>
-                  <MDBDropdownItem link>Brownies</MDBDropdownItem>
-                  <MDBDropdownItem link>Galletas</MDBDropdownItem>
-                  <MDBDropdownItem link>Donas</MDBDropdownItem>
+                  {categories.map((category) => (
+                    <MDBDropdownItem key={category}>
+                      <Link to={`category/${category}`}>{category}</Link>
+                    </MDBDropdownItem>
+                  ))}
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavbarItem>
@@ -72,7 +96,6 @@ export default function Navbar() {
           </MDBNavbarNav>
 
           <CartWidget />
-
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>

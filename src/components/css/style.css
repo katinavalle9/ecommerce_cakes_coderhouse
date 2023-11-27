@@ -5,4 +5,11 @@
 .custom-no-gutter-x {
     margin-left: 0 !important;
     margin-right: 0 !important;
-  }
+}
+
+.detalle{
+    display: flex !important;
+    justify-content: space-evenly;
+    margin-bottom: 3%;
+    
+}
