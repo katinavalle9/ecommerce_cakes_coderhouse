@@ -1,4 +1,3 @@
-// Importaciones necesarias
 import { useEffect, useState } from "react";
 import {
   MDBCard,
@@ -19,7 +18,7 @@ const ItemDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const product = await getProductById(productoId);
+        const product = await getProductById(parseInt(productoId));
         setProducto(product);
       } catch (error) {
         console.error("Error fetching product:", error);

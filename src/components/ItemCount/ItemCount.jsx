@@ -1,6 +1,6 @@
-import { MDBBtn } from 'mdb-react-ui-kit';
-import { useState } from 'react';
- 
+import { MDBBtn } from "mdb-react-ui-kit";
+import { useState } from "react";
+
 // eslint-disable-next-line react/prop-types
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -19,11 +19,12 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <div className=''>
-        <div className='d-flex justify-content-evenly mb-3'>
-          <MDBBtn onClick={increment}>+</MDBBtn>
-          <h4>{quantity}</h4>
+      <div className="">
+        <div className="d-flex justify-content-evenly mb-3">
           <MDBBtn onClick={decrement}>-</MDBBtn>
+
+          <h4>{quantity}</h4>
+          <MDBBtn onClick={increment}>+</MDBBtn>
         </div>
       </div>
       <div>

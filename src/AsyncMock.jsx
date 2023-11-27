@@ -271,32 +271,26 @@ export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(listadoProductos);
-    }, 500);
+    }, );
   });
 };
 
 export const getProductById = (productId) => {
   return new Promise((resolve) => {
-    setTimeout(() => {
       resolve(listadoProductos.find((prod) => prod.id === productId));
-    }, 500);
   });
 };
 
 export const getProductsByCategory = (categoryId) => {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(listadoProductos.filter((prod) => prod.category === categoryId));
-    }, 500);
+      resolve(listadoProductos.filter((prod) => prod.category === categoryId.categoria));
   });
 };
 
 export const getCategory = () => {
   return new Promise((resolve) => {
-    setTimeout(() => {
       const categories = [...new Set(listadoProductos.map((prod) => prod.category))];
       resolve(categories);
-    }, 500);
   });
 };
 

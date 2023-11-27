@@ -12,11 +12,8 @@ function App() {
       <BrowserRouter basename="/ecommerce_cakes_coderhouse">
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={<ItemListContainer greeting={"Bienvenidos"} />}
-            />
-            <Route path="prodcuto" element={<Item />} />
+            <Route index element={<ItemListContainer greeting={"Bienvenidos"} />}/>
+            <Route path="producto" element={<Item />} />
             <Route path="/producto/:productoId" element={<ItemDetail />} />
             {/* <Route path="*" element={<Error />} /> */}
           </Route>

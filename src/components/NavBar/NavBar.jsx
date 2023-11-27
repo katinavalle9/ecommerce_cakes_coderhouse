@@ -33,17 +33,9 @@ export default function Navbar() {
         console.error("Error fetching categories:", error);
       }
     };
-  
+
     fetchCategories();
   }, []);
-
-
-  if (!Array.isArray(categories) || categories.length === 0) {
-    // Si las categorías todavía se están cargando, puedes mostrar un indicador de carga
-    return <div>Cargando categorías...</div>;
-  }
-
-
 
   return (
     <MDBNavbar expand="lg" light bgColor="light">
@@ -81,9 +73,12 @@ export default function Navbar() {
                   Productos
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
+                  <MDBDropdownItem key={"Todos"}>
+                    <Link to="/">Todos</Link>
+                  </MDBDropdownItem>
                   {categories.map((category) => (
                     <MDBDropdownItem key={category}>
-                      <Link to={`category/${category}`}>{category}</Link>
+                      <Link to={`?categoria=${category}`}>{category}</Link>
                     </MDBDropdownItem>
                   ))}
                 </MDBDropdownMenu>

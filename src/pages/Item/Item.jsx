@@ -10,22 +10,22 @@ import {
 } from "mdb-react-ui-kit";
 import { getProducts, getProductsByCategory } from "../../AsyncMock";
 import "../../components/css/style.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const Item = ({ categoria }) => {
+const Item = () => {
   const [products, setProducts] = useState([]);
-
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const categoria = queryParams.get("categoria");
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         let productsData;
-
         if (categoria) {
           productsData = await getProductsByCategory({ categoria });
         } else {
           productsData = await getProducts();
         }
-
         setProducts(productsData);
       } catch (error) {
         console.error("Error fetching products:", error);
