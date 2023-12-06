@@ -21,7 +21,7 @@ const listadoProductos = [
   },
   {
     id: 3,
-    name: "Brownie combinado con diferentes chocolates",
+    name: "Brownie combinado",
     price: 55,
     category: "Brownies",
     image: "/src/assets/imagesMocks/brownie-colores.jpg",

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import {
   MDBCard,
@@ -12,11 +11,12 @@ import { getProducts, getProductsByCategory } from "../../AsyncMock";
 import "../../components/css/style.css";
 import { Link, useLocation } from "react-router-dom";
 
-const Item = () => {
+const Item = ({ searchTerm }) => {
   const [products, setProducts] = useState([]);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const categoria = queryParams.get("categoria");
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -33,11 +33,16 @@ const Item = () => {
     };
 
     fetchProducts();
-  }, [categoria]); // Reaccionar a cambios en la categoría
+  }, [categoria]); 
+
+  // Filtrar productos en función del término de búsqueda
+  const filteredProducts = products.filter((product) => 
+    product?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="d-flex row row-cols-2 row-cols-md-4 g-4 mt-5 px-5 custom-no-gutter-x">
-      {products.map((product) => (
+      {filteredProducts.map((product) => (
         <div key={product.id}>
           <MDBCard>
             {product.image && (

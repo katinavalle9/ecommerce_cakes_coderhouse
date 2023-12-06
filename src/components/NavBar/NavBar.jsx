@@ -86,7 +86,7 @@ export default function Navbar() {
             </MDBNavbarItem>
 
             <MDBNavbarItem>
-              <MDBNavbarLink href="#">Contacto</MDBNavbarLink>
+              <MDBNavbarLink href="contact">Contacto</MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
 

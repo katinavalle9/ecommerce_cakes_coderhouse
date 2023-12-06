@@ -1,23 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Navbar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetail from "./pages/ItemDetail/ItemDetail";
-import Item from "./pages/Item/Item";
 import Layout from "./pages/Layout";
-// import Error from "./pages/Error/Error";
+import Error from "./pages/Error/Error";
+import Contact from "./pages/Contact/Contact.jsx";
+import { CartProvider } from "./components/CartContext/CartContext.jsx";
+import Cart from "./components/Cart/Cart.jsx";
 
 function App() {
   return (
     <div>
       <BrowserRouter basename="/ecommerce_cakes_coderhouse">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<ItemListContainer greeting={"Bienvenidos"} />}/>
-            <Route path="producto" element={<Item />} />
-            <Route path="/producto/:productoId" element={<ItemDetail />} />
-            {/* <Route path="*" element={<Error />} /> */}
-          </Route>
-        </Routes>
+        <CartProvider>
+          <Routes>
+            {/* Rutas principales */}
+            <Route path="/" element={<Layout />}>
+              <Route index element={<ItemListContainer />} />
+              {/* Ruta para la página de contacto */}
+              <Route path="/contact" element={<Contact />} />
+              {/* Ruta para los detalles del producto */}
+              <Route path="/producto/:productoId" element={<ItemDetail />} />
+              <Route path="/cart" element={<Cart/>}/>
+            </Route>
+            {/* Ruta para errores */}
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

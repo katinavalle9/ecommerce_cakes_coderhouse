@@ -3,10 +3,11 @@ import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const ItemCount = ({ stock, initial, onAdd }) => {
+  const maxQuantity = 25; // Número máximo permitido
   const [quantity, setQuantity] = useState(initial);
 
   const increment = () => {
-    if (quantity < stock) {
+    if (quantity < stock && quantity < maxQuantity) {
       setQuantity(quantity + 1);
     }
   };
