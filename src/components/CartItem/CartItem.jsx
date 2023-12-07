@@ -15,7 +15,7 @@ const CartItem = ({ id, name, price, quantity }) => {
     <>
       <tr>
       <th scope="row">{name}</th>
-      <td>{price}</td>
+      <td>${price}</td>
       <td>{quantity}</td>
       <td>
         <MDBIcon

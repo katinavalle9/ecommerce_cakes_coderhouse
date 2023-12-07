@@ -1,9 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import { Link } from "react-router-dom";
-import { MDBBtn,MDBTable,
-  MDBTableHead,
-  MDBTableBody} from "mdb-react-ui-kit";
+import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import CartItem from "../CartItem/CartItem";
 
 const Cart = () => {
@@ -13,46 +11,55 @@ const Cart = () => {
     return (
       <div className="text-center py-5">
         <h1 className="mb-5">No hay productos en el carrito</h1>
-        <MDBBtn><Link to="/" className="color-link">Ver productos</Link></MDBBtn>
+        <MDBBtn>
+          <Link to="/" className="color-link">
+            Ver productos
+          </Link>
+        </MDBBtn>
       </div>
     );
   }
 
   const handleClearCart = () => {
-    // Llama a la función clearCart del contexto para limpiar el carrito
     clearCart();
   };
 
   return (
     <div className="container pt-5">
       <div className="row ">
-      <div>
-        <MDBBtn><Link to="/" className="color-link">Agregar Producto</Link></MDBBtn>
-      </div>
-      <MDBTable style={{ minWidth: "22rem" }}>
-        <MDBTableHead>
-          <tr>
-            <th scope="col" className="fw-bold">
-              Producto
-            </th>
-            <th scope="col" className="fw-bold">
-              Precio
-            </th>
-            <th scope="col" className="fw-bold">
-              Cantidad
-            </th>
-            <th scope="col" className="fw-bold">
-              Acción
-            </th>
-          </tr>
-        </MDBTableHead>
-        <MDBTableBody>
-          {cart.map((product) => (
-            <CartItem key={product.id} {...product} />
-          ))}
-        </MDBTableBody>
-      </MDBTable>
-        <h4 className="mb-5">Total : {total}</h4>
+        <div>
+          <MDBBtn>
+            <Link to="/" className="color-link">
+              Agregar Producto
+            </Link>
+          </MDBBtn>
+        </div>
+        <MDBTable style={{ minWidth: "22rem" }}>
+          <MDBTableHead>
+            <tr>
+              <th scope="col" className="fw-bold">
+                Producto
+              </th>
+              <th scope="col" className="fw-bold">
+                Precio
+              </th>
+              <th scope="col" className="fw-bold">
+                Cantidad
+              </th>
+              <th scope="col" className="fw-bold">
+                Acción
+              </th>
+            </tr>
+          </MDBTableHead>
+          <MDBTableBody>
+            {cart.map((product) => (
+              <CartItem key={product.id} {...product} />
+            ))}
+          </MDBTableBody>
+        </MDBTable>
+        <div className="d-flex justify-content-center">
+          <p className="mb-5">Total : ${total}</p>
+        </div>
         <div className="col-12 col-sm-6 mb-3 d-flex flex-column justify-content-center align-items-center mx-auto">
           <MDBBtn block color="info" size="md" onClick={handleClearCart}>
             Limpiar carrito
