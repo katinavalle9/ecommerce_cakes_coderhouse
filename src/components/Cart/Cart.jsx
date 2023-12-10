@@ -28,9 +28,9 @@ const Cart = () => {
     <div className="container pt-5">
       <div className="row ">
         <div>
-          <MDBBtn>
+          <MDBBtn color="warning">
             <Link to="/" className="color-link">
-              Agregar Producto
+              Agregar producto
             </Link>
           </MDBBtn>
         </div>
@@ -69,7 +69,7 @@ const Cart = () => {
       <div className="row">
         <div className="col-12 col-sm-6 mb-3 d-flex flex-column justify-content-center mx-auto">
           <MDBBtn color="success" size="md">
-            <Link className="color-link" to="checkout">
+            <Link className="color-link" to="/checkout">
               CheckOut
             </Link>
           </MDBBtn>

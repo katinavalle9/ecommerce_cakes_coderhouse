@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import "../Error/Error.css";
 
 const Error = () => {
   return (
     <>
      <div className="main">
+      
   <div>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 355">
   <g id="ocean">
@@ -290,6 +292,9 @@ const Error = () => {
   </g>
 </svg>
   </div>
+  <div className="text-center pb-5">
+      <Link to="/">Regresar al inicio</Link>
+      </div>
 </div>
     </>
   );
