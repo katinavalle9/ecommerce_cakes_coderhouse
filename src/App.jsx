@@ -12,7 +12,7 @@ import Checkout from "./components/Checkout/Checkout.jsx";
 function App() {
   return (
     <div>
-      <BrowserRouter basename="/ecommerce_cakes_coderhouse">
+      <BrowserRouter basename="/ecommerce_cakes_coderhouse/">
         <CartProvider>
           <Routes>
             {/* Rutas principales */}

@@ -78,7 +78,7 @@ export default function Navbar() {
                   </MDBDropdownItem>
                   {categories.map((category) => (
                     <MDBDropdownItem key={category}>
-                      <Link to={`?categoria=${category}`}>{category}</Link>
+                      <Link to={`/?categoria=${category}`}>{category}</Link>
                     </MDBDropdownItem>
                   ))}
                 </MDBDropdownMenu>
@@ -86,7 +86,9 @@ export default function Navbar() {
             </MDBNavbarItem>
 
             <MDBNavbarItem>
-              <MDBNavbarLink href="contact">Contacto</MDBNavbarLink>
+              <MDBNavbarLink tag="div">
+                <Link to={`contact`}>Contacto</Link>
+              </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
 

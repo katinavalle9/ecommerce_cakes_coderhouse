@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDpiQD_idZSz5RKHVEwV-fOs8E_b0oBi1g",
-  authDomain: "ecommerce-b5165.firebaseapp.com",
-  projectId: "ecommerce-b5165",
-  storageBucket: "ecommerce-b5165.appspot.com",
-  messagingSenderId: "820328718882",
-  appId: "1:820328718882:web:88bb6e4ed86a42b139607b",
+  apiKey: import.meta.env.VITE_REACT_APP_apiKEy,
+  authDomain: import.meta.env.VITE_REACT_APP_authDomain,
+  projectId: import.meta.env.VITE_REACT_APP_projectId,
+  storageBucket: import.meta.env.VITE_REACT_APP_storageBucket,
+  messagingSenderId: import.meta.env.VITE_REACT_APP_messagingSenderId,
+  appId: import.meta.env.VITE_REACT_APP_appId,
 };
 
 const app = initializeApp(firebaseConfig);

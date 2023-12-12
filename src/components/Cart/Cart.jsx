@@ -27,13 +27,9 @@ const Cart = () => {
   return (
     <div className="container pt-5">
       <div className="row ">
-        <div>
-          <MDBBtn color="warning">
-            <Link to="/" className="color-link">
+            <Link to="/" className="color-link ripple ripple-surface btn btn-warning d-flex w-25 h-100 justify-content-center">
               Agregar producto
             </Link>
-          </MDBBtn>
-        </div>
         <MDBTable style={{ minWidth: "22rem" }}>
           <MDBTableHead>
             <tr>
