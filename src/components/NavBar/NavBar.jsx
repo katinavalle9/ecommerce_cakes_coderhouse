@@ -62,8 +62,8 @@ export default function Navbar() {
         <MDBCollapse navbar open={openBasic}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0 d-flex justify-content-around align-items-center">
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="/">
-                Inicio
+              <MDBNavbarLink active aria-current="page" tag="div">
+              <Link to={`/`}>Inicio</Link>
               </MDBNavbarLink>
             </MDBNavbarItem>
 
