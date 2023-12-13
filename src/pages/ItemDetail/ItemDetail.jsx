@@ -64,7 +64,7 @@ const ItemDetail = () => {
       <div className="d-flex row row-cols-2 row-cols-md-4 g-4 my-3 px-5 justify-content-center custom-no-gutter-x">
         <div>
           <MDBCard alignment="center">
-            <MDBCardImage src={"../" + image} alt={name} position="top" />
+            <MDBCardImage src={image} alt={name} position="top" />
             <MDBCardBody>
               <MDBCardTitle>{name}</MDBCardTitle>
               <MDBCardText> Descripcion: {description}</MDBCardText>
